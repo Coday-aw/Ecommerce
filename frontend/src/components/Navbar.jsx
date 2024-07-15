@@ -1,6 +1,5 @@
 import Logo from "../assets/logo.png";
 import { Link, NavLink } from "react-router-dom";
-import "../css/Navbar.css";
 import { FaShoppingCart } from "react-icons/fa";
 import DropDown from "./DropDown";
 import { FaUser } from "react-icons/fa";
@@ -9,26 +8,32 @@ import { AuthContext } from "./AuthContext";
 
 const Navbar = () => {
   const { totalQuantity } = useSelector((state) => state.ShoppingCart);
+
   return (
-    <nav className="navbar">
-      <div className="nav-logo">
+    <nav className="p-1 flex items-center justify-between border-b">
+      <div className="flex items-center">
         <Link to="/">
-          <img src={Logo} alt="logo" />
+          <img
+            src={Logo}
+            alt="logo"
+            className="w-[50px] h-[50px] md:w-[100px] md:h-[100px]"
+          />
         </Link>
-        <h1>Mega store</h1>
+        <h1 className="text-xl text-black uppercase">Mega store</h1>
       </div>
-      <ul className="nav-links">
-        <li className="nav-link">
+
+      <ul className="flex justify-between items-center gap-2 sm:gap-5 md:gap-10">
+        <li className="list-none hover:text-[#ff9f1a] hover:ease-in-out ">
           <NavLink to="/">Home</NavLink>
         </li>
-        <li className="nav-link">
+        <li className="list-none hover:text-[#ff9f1a] hover:ease-in-out">
           <NavLink to="/product">Products</NavLink>
         </li>
-        <li className="nav-link">
+        <li className="list-none hover:text-[#ff9f1a] hover:ease-in-out">
           <NavLink to="/contact">Contact</NavLink>
         </li>
 
-        <li className="nav-link">
+        <li className="list-none hover:text-[#ff9f1a] hover:ease-in-out">
           <Link to="/aboutUs">About</Link>
         </li>
         <li>
@@ -52,11 +57,6 @@ const Navbar = () => {
           </DropDown>
         </li>
       </ul>
-
-      {/* <div className="cart-icon">
-          <FaShoppingCart />
-          <div>login</div>
-        </div> */}
     </nav>
   );
 };

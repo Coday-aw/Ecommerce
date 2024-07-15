@@ -73,7 +73,12 @@ export const LoginForm = () => {
           </form>
           <div>
             <p>Don't have an account?</p>
-            <a href="/auth/register">Register</a>
+            <a
+              className="text-blue-800 hover:text-blue-500"
+              href="/auth/register"
+            >
+              Register
+            </a>
           </div>
         </div>
       )}

@@ -8,6 +8,7 @@ export const RegisterForm = () => {
   const [formData, setformData] = useState({
     email: "",
     password: "",
+    comformPassword: "",
   });
 
   const [userCreated, setuserCreated] = useState(false);
@@ -25,6 +26,11 @@ export const RegisterForm = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email.trim())) {
       setFormError("Invalid email");
+      return;
+    }
+
+    if (formData.password !== formData.comformPassword) {
+      setFormError("Passwords do not match");
       return;
     }
 
@@ -61,6 +67,15 @@ export const RegisterForm = () => {
               required
               name="password"
               value={formData.password}
+              onChange={handleChange}
+            />
+            <input
+              className="border border-neutral-500 py-1 px-2 rounded"
+              type="password"
+              placeholder="comformPassword"
+              required
+              name="comformPassword"
+              value={formData.comformPassword}
               onChange={handleChange}
             />
 

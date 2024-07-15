@@ -4,11 +4,16 @@ import bcrypt from "bcryptjs";
 import generateToken from "../utils/generateToken.js";
 
 const registerUser = asynchandler(async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, comformPassword } = req.body;
 
-  if (!email || !password) {
+  if (!email || !password || !comformPassword) {
     res.status(400);
     throw new Error("Please fill all fields");
+  }
+
+  if (password !== comformPassword) {
+    res.status(400);
+    throw new Error("Passwords do not match");
   }
 
   const userExist = await User.findOne({ email });

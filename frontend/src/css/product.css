@@ -4,8 +4,6 @@
     grid-gap: 1rem;
     margin-top: 2rem;
     margin-bottom: 100px;
-
-
 }
 
 .product-header {
@@ -31,6 +29,7 @@
         align-items: center;
         background-color: #333;
     }
+
 }
 
 
@@ -78,5 +77,21 @@
             color: #333;
         }
 
+    }
+}
+
+@media (max-width: 768px) {
+    .product-conatiner {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-header {
+        & h1 {
+            font-size: 30px;
+        }
+
+        & hr {
+            width: 100px;
+        }
     }
 }
